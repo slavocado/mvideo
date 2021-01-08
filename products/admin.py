@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from .models import Categories, Products, Specification, Ratings, Reviews
+from .models import Category, Product, Specification, Rating, Review
 
-admin.site.register(Categories)
-admin.site.register(Products)
+admin.site.register(Category)
+admin.site.register(Product)
 admin.site.register(Specification)
-admin.site.register(Ratings)
-admin.site.register(Reviews)
+admin.site.register(Rating)
+admin.site.register(Review)

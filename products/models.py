@@ -1,6 +1,6 @@
 from django.db import models
 
-class Categories(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=45)
 
     def __str__(self):
@@ -12,9 +12,9 @@ class Specification(models.Model):
     def __str__(self):
         return self.name
 
-class Products(models.Model):
+class Product(models.Model):
     name = models.CharField(max_length=200)
-    category = models.ForeignKey(Categories, on_delete=models.PROTECT)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
     specification = models.ForeignKey(Specification, on_delete=models.PROTECT)
     link_to_photos = models.URLField(max_length=200)
     short_description = models.TextField('Short description')
@@ -22,16 +22,16 @@ class Products(models.Model):
     def __str__(self):
         return self.name
 
-class Ratings(models.Model):
-    quality = models.IntegerField
-    functionality = models.IntegerField
+class Rating(models.Model):
+    quality = models.IntegerField()
+    functionality = models.IntegerField()
 
-class Reviews(models.Model):
+class Review(models.Model):
     text = models.TextField('Review text')
-    recommendation = models.BooleanField
+    recommendation = models.BooleanField()
     date = models.DateTimeField(auto_now_add=True)
-    product = models.ForeignKey(Products, on_delete=models.PROTECT)
-    rating = models.ForeignKey(Ratings, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    rating = models.ForeignKey(Rating, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.text
