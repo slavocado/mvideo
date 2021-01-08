@@ -14,3 +14,6 @@ class Quantity(models.Model):
     quantity = models.IntegerField()
     store = models.ForeignKey(Store, on_delete=models.PROTECT)
     product = models.ForeignKey(pmodels.Product, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.quantity
