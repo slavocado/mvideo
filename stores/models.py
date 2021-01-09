@@ -1,6 +1,7 @@
 from django.db import models
 from products import models as pmodels
 
+
 class Store(models.Model):
     name = models.CharField(max_length=200)
     address = models.TextField('Store address')
@@ -9,6 +10,7 @@ class Store(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Quantity(models.Model):
     quantity = models.IntegerField()

@@ -1,6 +1,7 @@
 from django.db import models
 from products import models as pmodels
 
+
 class User(models.Model):
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200)
@@ -10,6 +11,7 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Order(models.Model):
     date = models.DateTimeField()
