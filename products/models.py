@@ -1,16 +1,19 @@
 from django.db import models
 
+
 class Category(models.Model):
     name = models.CharField(max_length=45)
 
     def __str__(self):
         return self.name
 
+
 class Specification(models.Model):
     name = models.TextField('Product specification')
 
     def __str__(self):
         return self.name
+
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
@@ -22,9 +25,11 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+
 class Rating(models.Model):
     quality = models.IntegerField()
     functionality = models.IntegerField()
+
 
 class Review(models.Model):
     text = models.TextField('Review text')

@@ -9,6 +9,7 @@ class StoreAdmin(admin.ModelAdmin):
     search_fields = ('address',)
 
 
+
 class QuantityAdmin(admin.ModelAdmin):
     list_display = ('product', 'store', 'quantity')
     list_filter = ('store',)
