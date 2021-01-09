@@ -16,12 +16,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     product = models.ForeignKey(pmodels.Product, on_delete=models.PROTECT)
 
-    def __str__(self):
-        return self.product
 
 class Favourite(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     product = models.ForeignKey(pmodels.Product, on_delete=models.PROTECT)
-
-    def __str__(self):
-        return self.product
