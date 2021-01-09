@@ -16,10 +16,10 @@ class Specification(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField('name', max_length=200)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     specification = models.ForeignKey(Specification, on_delete=models.PROTECT)
-    link_to_photos = models.URLField(max_length=200)
+    link_to_photos = models.URLField('link', max_length=200)
     short_description = models.TextField('Short description')
 
     def __str__(self):
