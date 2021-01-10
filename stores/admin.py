@@ -1,19 +1,17 @@
 from django.contrib import admin
-
 from .models import Store, Quantity
 
+from import_export.admin import ImportExportActionModelAdmin
 
-class StoreAdmin(admin.ModelAdmin):
+
+@admin.register(Store)
+class StoreAdmin(ImportExportActionModelAdmin):
     list_display = ('name', 'address', 'subway', 'work_hours')
     list_filter = ('subway',)
     search_fields = ('address',)
 
 
-
-class QuantityAdmin(admin.ModelAdmin):
+@admin.register(Quantity)
+class QuantityAdmin(ImportExportActionModelAdmin):
     list_display = ('product', 'store', 'quantity')
     list_filter = ('store',)
-
-
-admin.site.register(Store, StoreAdmin)
-admin.site.register(Quantity, QuantityAdmin)

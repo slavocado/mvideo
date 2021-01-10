@@ -11,16 +11,15 @@ class ProductAdmin(ImportExportActionModelAdmin):
     search_fields = ('name', 'category__name')
 
 
-class RatingAdmin(admin.ModelAdmin):
+@admin.register(Rating)
+class RatingAdmin(ImportExportActionModelAdmin):
     list_display = ('quality', 'functionality')
 
 
-class ReviewAdmin(admin.ModelAdmin):
+@admin.register(Review)
+class ReviewAdmin(ImportExportActionModelAdmin):
     list_display = ('text', 'recommendation', 'date', 'product', 'rating')
 
 
 admin.site.register(Category)
-# admin.site.register(Product, ProductAdmin)
 admin.site.register(Specification)
-admin.site.register(Rating, RatingAdmin)
-admin.site.register(Review, ReviewAdmin)
